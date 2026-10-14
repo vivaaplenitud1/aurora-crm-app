@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-14T19:56:24-04:00",
+  "actualizado": "2026-10-14T19:56:31-04:00",
   "tareas": [
     {
       "id": "T001",
@@ -23,10 +23,10 @@
       "id": "T003",
       "titulo": "Actualizar guía de llamadas de seguimiento",
       "agente_asignado": "A05 Copywriter",
-      "estado": "por_verificar",
-      "verificado_por": "",
+      "estado": "hecho",
+      "verificado_por": "Auditor de Entrega",
       "creada": "2026-10-14T19:04:24-04:00",
-      "actualizada": "2026-10-14T19:56:22-04:00"
+      "actualizada": "2026-10-14T19:56:29-04:00"
     }
   ]
 }
