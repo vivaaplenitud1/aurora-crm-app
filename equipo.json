@@ -1,1 +1,14 @@
-{"actualizado":"","tareas":[]}
+{
+  "actualizado": "2026-10-14T19:04:11-04:00",
+  "tareas": [
+    {
+      "id": "T001",
+      "titulo": "Revisar artículo de protección hipotecaria",
+      "agente_asignado": "A02 Redactor",
+      "estado": "pendiente",
+      "verificado_por": "",
+      "creada": "2026-10-14T19:04:09-04:00",
+      "actualizada": "2026-10-14T19:04:09-04:00"
+    }
+  ]
+}
