@@ -1,14 +1,14 @@
 {
-  "actualizado": "2026-10-14T19:04:36-04:00",
+  "actualizado": "2026-10-14T19:04:49-04:00",
   "tareas": [
     {
       "id": "T001",
       "titulo": "Revisar artículo de protección hipotecaria",
       "agente_asignado": "A02 Redactor",
-      "estado": "en_curso",
+      "estado": "por_verificar",
       "verificado_por": "",
       "creada": "2026-10-14T19:04:09-04:00",
-      "actualizada": "2026-10-14T19:04:33-04:00"
+      "actualizada": "2026-10-14T19:04:45-04:00"
     },
     {
       "id": "T002",
