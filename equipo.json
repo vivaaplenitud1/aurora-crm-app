@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-14T19:04:11-04:00",
+  "actualizado": "2026-10-14T19:04:20-04:00",
   "tareas": [
     {
       "id": "T001",
@@ -9,6 +9,15 @@
       "verificado_por": "",
       "creada": "2026-10-14T19:04:09-04:00",
       "actualizada": "2026-10-14T19:04:09-04:00"
+    },
+    {
+      "id": "T002",
+      "titulo": "Preparar imagen para publicación de última voluntad",
+      "agente_asignado": "Imágenes S1",
+      "estado": "pendiente",
+      "verificado_por": "",
+      "creada": "2026-10-14T19:04:18-04:00",
+      "actualizada": "2026-10-14T19:04:18-04:00"
     }
   ]
 }
