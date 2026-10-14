@@ -102,3 +102,6 @@ a.btn{color:var(--text)}
 .eq-bloqueado{border-color:#c0392b;background:#fbe1de}.eq-count{background:#fff}
 .eq-upd{margin-top:14px;color:#666;font-size:.85rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .eq-sub{margin-top:22px}.eq-empty{color:#666}
+.eq-count,.eq-count b,.eq-count small{color:#10223d}.eq-badge{color:#10223d}
+.eq-hecho.eq-badge{color:#0d5c30}.eq-bloqueado.eq-badge{color:#8a1f14}.eq-por_verificar.eq-badge{color:#123f86}.eq-en_curso.eq-badge{color:#6b5000}
+#eqRefresh{color:#fff}
