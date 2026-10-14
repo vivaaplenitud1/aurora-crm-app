@@ -35,7 +35,7 @@ th{position:sticky;top:0;background:#0b2150;text-align:left;font-weight:600;padd
 td{padding:6px 10px;border-bottom:1px solid #16386a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
 tr:hover td{background:#0f2a5a}
 .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 12px;font-size:12.5px;border:1px solid;white-space:nowrap}
-.pill select{background:transparent;border:0;outline:0;cursor:pointer;max-width:170px}
+.pill select{background:transparent;border:0;outline:0;cursor:pointer;max-width:min(280px,42vw);min-width:140px}
 .pill option{background:#0a1d44;color:#e9f0ff}
 .c-teal{background:#0f5a5a;border-color:#3dd6c6}.c-blue{background:#123f8a;border-color:#3fc6ff}.c-purple{background:#3b2a8a;border-color:#9d8cff}
 .c-gold{background:#5a420c;border-color:#ffd36b;color:#ffe9b0}.c-green{background:#0d5a3c;border-color:#3ddc97}.c-gray{background:#2d3a52;border-color:#9db0d3}
@@ -91,3 +91,14 @@ dialog .row{display:flex;gap:10px;margin-top:16px;justify-content:flex-end}
 a.btn{color:var(--text)}
 .datef{display:flex;flex-direction:column;font-size:11px;color:var(--muted);gap:2px}
 @media (max-width:640px){.filters>.datef{flex:1 1 40%}}
+/* Equipo Kairos */
+.eq-counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:0 0 16px}
+.eq-count{background:#fff;border-radius:12px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-left:4px solid #999}
+.eq-count b{display:block;font-size:1.6rem}.eq-count small{color:#555}
+.eq-item{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.eq-badge{padding:4px 10px;border-radius:999px;font-size:.8rem;font-weight:600;white-space:nowrap;background:#eee}
+.eq-pendiente{border-color:#9aa;background:#eef1f1}.eq-en_curso{border-color:#d9a400;background:#fff6d6}
+.eq-por_verificar{border-color:#2b6fd6;background:#e3eeff}.eq-hecho{border-color:#1f9d55;background:#ddf5e6}
+.eq-bloqueado{border-color:#c0392b;background:#fbe1de}.eq-count{background:#fff}
+.eq-upd{margin-top:14px;color:#666;font-size:.85rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.eq-sub{margin-top:22px}.eq-empty{color:#666}
