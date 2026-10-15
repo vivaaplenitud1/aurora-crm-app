@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-14T22:01:38-04:00",
+  "actualizado": "2026-10-14T22:04:49-04:00",
   "tareas": [
     {
       "id": "T001",
@@ -8,7 +8,10 @@
       "estado": "demo_no_valida",
       "verificado_por": "",
       "creada": "2026-10-14T19:04:09-04:00",
-      "actualizada": "2026-10-14T22:01:30-04:00"
+      "actualizada": "2026-10-14T22:01:30-04:00",
+      "issue": null,
+      "evidencia": null,
+      "entregables": null
     },
     {
       "id": "T002",
@@ -17,7 +20,10 @@
       "estado": "demo_no_valida",
       "verificado_por": "",
       "creada": "2026-10-14T19:04:18-04:00",
-      "actualizada": "2026-10-14T22:01:30-04:00"
+      "actualizada": "2026-10-14T22:01:30-04:00",
+      "issue": null,
+      "evidencia": null,
+      "entregables": null
     },
     {
       "id": "T003",
@@ -26,16 +32,22 @@
       "estado": "demo_no_valida",
       "verificado_por": "",
       "creada": "2026-10-14T19:04:24-04:00",
-      "actualizada": "2026-10-14T22:01:30-04:00"
+      "actualizada": "2026-10-14T22:01:30-04:00",
+      "issue": null,
+      "evidencia": null,
+      "entregables": null
     },
     {
       "id": "T004",
       "titulo": "Artículo: proteger la hipoteca con seguro de vida con beneficios en vida (Florida, familias hispanas)",
       "agente_asignado": "Kairos A04 Writer Blog",
-      "estado": "pendiente",
+      "estado": "en_curso",
       "verificado_por": "",
       "creada": "2026-10-14T22:01:36-04:00",
-      "actualizada": "2026-10-14T22:01:36-04:00"
+      "actualizada": "2026-10-14T22:04:47-04:00",
+      "issue": null,
+      "evidencia": null,
+      "entregables": null
     }
   ]
 }
