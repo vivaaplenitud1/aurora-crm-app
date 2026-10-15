@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-14T22:01:32-04:00",
+  "actualizado": "2026-10-14T22:01:38-04:00",
   "tareas": [
     {
       "id": "T001",
@@ -27,6 +27,15 @@
       "verificado_por": "",
       "creada": "2026-10-14T19:04:24-04:00",
       "actualizada": "2026-10-14T22:01:30-04:00"
+    },
+    {
+      "id": "T004",
+      "titulo": "Artículo: proteger la hipoteca con seguro de vida con beneficios en vida (Florida, familias hispanas)",
+      "agente_asignado": "Kairos A04 Writer Blog",
+      "estado": "pendiente",
+      "verificado_por": "",
+      "creada": "2026-10-14T22:01:36-04:00",
+      "actualizada": "2026-10-14T22:01:36-04:00"
     }
   ]
 }
