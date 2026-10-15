@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-14T22:04:49-04:00",
+  "actualizado": "2026-10-14T22:05:16-04:00",
   "tareas": [
     {
       "id": "T001",
@@ -41,13 +41,19 @@
       "id": "T004",
       "titulo": "Artículo: proteger la hipoteca con seguro de vida con beneficios en vida (Florida, familias hispanas)",
       "agente_asignado": "Kairos A04 Writer Blog",
-      "estado": "en_curso",
+      "estado": "por_verificar",
       "verificado_por": "",
       "creada": "2026-10-14T22:01:36-04:00",
-      "actualizada": "2026-10-14T22:04:47-04:00",
+      "actualizada": "2026-10-14T22:05:14-04:00",
       "issue": null,
-      "evidencia": null,
-      "entregables": null
+      "evidencia": {
+        "reglas_ok": "6/6",
+        "palabras": 1223,
+        "filtro": "APROBADO"
+      },
+      "entregables": [
+        "https://github.com/vivaaplenitud1/aurora-datos/blob/main/entregas/T004/articulo.md"
+      ]
     }
   ]
 }
