@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-14T22:09:20-04:00",
+  "actualizado": "2026-10-15T15:42:32-04:00",
   "tareas": [
     {
       "id": "T001",
@@ -11,7 +11,9 @@
       "actualizada": "2026-10-14T22:01:30-04:00",
       "issue": null,
       "evidencia": null,
-      "entregables": null
+      "entregables": null,
+      "origen": null,
+      "origen_id": null
     },
     {
       "id": "T002",
@@ -23,7 +25,9 @@
       "actualizada": "2026-10-14T22:01:30-04:00",
       "issue": null,
       "evidencia": null,
-      "entregables": null
+      "entregables": null,
+      "origen": null,
+      "origen_id": null
     },
     {
       "id": "T003",
@@ -35,7 +39,9 @@
       "actualizada": "2026-10-14T22:01:30-04:00",
       "issue": null,
       "evidencia": null,
-      "entregables": null
+      "entregables": null,
+      "origen": null,
+      "origen_id": null
     },
     {
       "id": "T004",
@@ -53,7 +59,9 @@
       },
       "entregables": [
         "https://vivaaplenitud1.github.io/aurora-crm-app/entregables/T004/articulo.md"
-      ]
+      ],
+      "origen": null,
+      "origen_id": null
     }
   ]
 }
