@@ -2,8 +2,8 @@
 'use strict';
 var STAGES=[['Opt-In Lead','blue'],['48/24 Hr Qual Call Conf','teal'],['Day of Qual Call','teal'],['Qualification Call','teal'],['Rebook Qual Call','teal'],['Qual Call Follow-Up','teal'],['48/24 Hr Sales Call','blue'],['Day of Sales Call','blue'],['DSA/MRS Sales Call','blue'],['Rebook Sales Call','blue'],['$ Follow Up','purple'],['Aplicación','gold'],['Suscripción','gold'],['Pendiente de requisitos','gold'],['Aprobado','green'],['Activo','green'],['DSA/MRS Students','purple'],['Archived Leads','gray']];
 var COLOR={};STAGES.forEach(function(s){COLOR[s[0]]=s[1]});
-var NAV=[['dashboard','Dashboard','⌂'],['crm','Contactos / CRM','👤'],['tareas','Tareas','☑'],['equipo','Equipo Kairos','🛡'],['calendario','Calendario','📅'],['llamadas','Llamadas','📞'],['mensajes','Mensajes','💬'],['documentos','Documentos','📄'],['reportes','Reportes','📊'],['configuracion','Configuración','⚙']];
-var BOTTOM=['dashboard','crm','tareas','calendario','documentos'];
+var NAV=[['dashboard','Dashboard','⌂'],['crm','Contactos / CRM','👤'],['tareas','Tareas','☑'],['kairos','Hablar con Kairos','✦'],['equipo','Equipo Kairos','🛡'],['calendario','Calendario','📅'],['llamadas','Llamadas','📞'],['mensajes','Mensajes','💬'],['documentos','Documentos','📄'],['reportes','Reportes','📊'],['configuracion','Configuración','⚙']];
+var BOTTOM=['dashboard','crm','kairos','tareas','calendario'];
 var KEY='aurora-crm-v1';
 var FIRST=['Ana Demo','Beto Ficticio','Carla Muestra','Dario Prueba','Elena Ejemplo','Fabio Demo','Gina Ficticia','Hugo Muestra','Irene Prueba','Julio Ejemplo','Karla Demo','Leo Ficticio','Mara Muestra','Nico Prueba','Olga Ejemplo','Pablo Demo','Quina Ficticia','Raúl Muestra','Sara Prueba','Tito Ejemplo','Uma Demo','Vico Ficticio'];
 function pad(n){return (n<10?'0':'')+n}
@@ -39,8 +39,8 @@ V.documentos=function(){return '<div class="head"><h1>Documentos</h1><p>Bóveda 
 function ph(t){return function(){return '<div class="head"><h1>'+t+'</h1></div><div class="card ph"><img src="assets/kairos.png" alt=""><h2>Próximamente</h2><p>Kairos está preparando esta sección.</p></div>'}}
 V.llamadas=ph('Llamadas');V.mensajes=ph('Mensajes');V.reportes=ph('Reportes');V.configuracion=ph('Configuración');
 
-var EQ={tareas:[],actualizado:''},EQL={pendiente:'Pendiente',en_curso:'En curso',por_verificar:'Por verificar',hecho:'Hecho y verificado',bloqueado:'Bloqueado'};
-function loadEq(){fetch('equipo.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){EQ=j;if(cur()==='equipo'||cur()==='tareas')render()}).catch(function(){})}
+var EQ={tareas:[],actualizado:''},EQL={pendiente:'Pendiente',en_curso:'En curso',por_verificar:'Por verificar',hecho:'Hecho y verificado',bloqueado:'Bloqueado',demo_no_valida:'Demo (no válida)'};
+function loadEq(){fetch('equipo.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){EQ=j;if(cur()==='equipo'||cur()==='tareas'||cur()==='kairos')render()}).catch(function(){})}
 function eqList(){if(!EQ.tareas.length)return '<p class="eq-empty">Sin tareas del equipo todavía.</p>';return '<div class="list">'+EQ.tareas.map(function(t){return '<div class="item eq-item"><span class="grow"><b>'+esc(t.id+' · '+t.titulo)+'</b><small>Agente: '+esc(t.agente_asignado||'sin asignar')+(t.verificado_por?' · Verificó: '+esc(t.verificado_por):'')+'</small></span><span class="eq-badge eq-'+t.estado+'">'+(EQL[t.estado]||t.estado)+'</span></div>'}).join('')+'</div>'}
 V.equipo=function(){var c={};EQ.tareas.forEach(function(t){c[t.estado]=(c[t.estado]||0)+1});return '<div class="head"><h1>Equipo Kairos</h1><p>Tareas del equipo en tiempo real. Solo lectura: el equipo trabaja desde su consola y el Fiscal verifica antes de marcar «hecho».</p></div><div class="eq-counts">'+Object.keys(EQL).map(function(k){return '<div class="eq-count eq-'+k+'"><b>'+(c[k]||0)+'</b><small>'+EQL[k]+'</small></div>'}).join('')+'</div>'+eqList()+'<p class="eq-upd">Actualizado: '+(EQ.actualizado?esc(new Date(EQ.actualizado).toLocaleString('es-US')):'—')+' <button type="button" class="btn" id="eqRefresh">Actualizar</button></p>'};
 function cur(){var h=location.hash.slice(1);return V[h]?h:'dashboard'}
@@ -53,7 +53,7 @@ function say(t){var b=$('#bubble');b.textContent=t;b.classList.remove('hide');cl
 function closeMenu(){$('#sidebar').classList.remove('open');$('#scrim').classList.remove('open')}
 $('#menuBtn').onclick=function(){$('#sidebar').classList.add('open');$('#scrim').classList.add('open')};$('#scrim').onclick=closeMenu;
 var tips=['Hola, soy Kairos. ¿En qué te ayudo hoy?','Toca la etapa de un lead para cambiarla.','Revisa tus citas en Calendario.','Los datos se guardan en este navegador.'],ti=0;
-$('#kairosBtn').onclick=function(){ti=(ti+1)%tips.length;say(tips[ti])};setTimeout(function(){$('#bubble').classList.add('hide')},5000);
+$('#kairosBtn').onclick=function(){if(cur()!=='kairos'){location.hash='kairos';say('Dime tu orden y mi equipo se pone a trabajar.')}else{ti=(ti+1)%tips.length;say(tips[ti])}};setTimeout(function(){$('#bubble').classList.add('hide')},5000);
 $('#globalSearch').oninput=function(e){st.q=e.target.value;if(cur()!=='crm')location.hash='crm';else render()};
 document.addEventListener('change',function(e){var t=e.target;
  if(t.dataset.stage){var l=db.leads.filter(function(x){return x.id===t.dataset.stage})[0];l.stage=t.value;save();t.parentNode.className='pill c-'+COLOR[l.stage];say('Etapa: '+l.stage)}
@@ -65,6 +65,24 @@ document.addEventListener('click',function(e){var t=e.target.closest('[data-edit
  else if(t.dataset.go){st.stage=t.dataset.go;location.hash='crm'}
  else if(t.dataset.deltask){e.preventDefault();db.tasks=db.tasks.filter(function(x){return x.id!==t.dataset.deltask});save();render()}});
 document.addEventListener('submit',function(e){if(e.target.id==='taskForm'){e.preventDefault();db.tasks.push({id:'T'+Date.now(),title:$('#tTitle').value,due:$('#tDue').value,done:false});save();render()}});
+
+var KREPO='vivaaplenitud1/aurora-datos',KLS='aurora_ordenes_enviadas';
+function kSent(){try{return JSON.parse(localStorage.getItem(KLS)||'[]')}catch(e){return []}}
+function kOrder(t){var ev=t.evidencia||{},bits=[];if(ev.reglas_ok)bits.push('Reglas '+ev.reglas_ok);if(ev.palabras!=null)bits.push(ev.palabras+' palabras');if(ev.filtro)bits.push('Filtro: '+ev.filtro);if(ev.http)bits.push('HTTP '+ev.http);
+var links=(t.entregables||[]).filter(function(u){return /^https:\/\/github\.com\/vivaaplenitud1\/aurora-datos\//.test(u)}).map(function(u){return '<a class="btn k-link" href="'+esc(u)+'" target="_blank" rel="noopener">Ver entregable</a>'}).join(' ');
+return '<div class="item eq-item k-order"><span class="grow"><b>'+esc(t.id+' · '+t.titulo)+'</b><small>Agente: '+esc(t.agente_asignado||'sin asignar')+(t.verificado_por?' · Verificó: '+esc(t.verificado_por):'')+(t.issue?' · <a href="https://github.com/'+KREPO+'/issues/'+(+t.issue)+'" target="_blank" rel="noopener">Orden #'+(+t.issue)+'</a>':'')+'</small>'+(bits.length?'<small class="k-ev">Evidencia: '+esc(bits.join(' · '))+'</small>':'')+(links?'<span class="k-links">'+links+'</span>':'')+'</span><span class="eq-badge eq-'+t.estado+'">'+(EQL[t.estado]||t.estado)+'</span></div>'}
+V.kairos=function(){var ts=EQ.tareas.slice().reverse(),titles=ts.map(function(t){return t.titulo});
+var pend=kSent().filter(function(o){return titles.indexOf(o.t)<0&&!ts.some(function(t){return t.issue&&o.t&&t.titulo.indexOf(o.t)>=0})});
+return '<div class="head"><h1>Hablar con Kairos</h1><p>Escribe tu orden. Kairos la reparte a su equipo, el programa comprueba el trabajo y el Fiscal lo verifica. Aquí ves cada orden, quién la tiene, la evidencia y el entregable. Nada se publica sin tu aprobación escrita.</p></div>'+
+'<form class="k-form" id="kForm"><input id="kTitle" maxlength="120" required placeholder="Orden corta (se verá en Aurora; sin datos de clientes)"><textarea id="kBody" rows="4" placeholder="Detalles: qué quieres, para cuándo, qué debe entregar..."></textarea><button class="btn">Enviar orden a Kairos</button><small>Se abre GitHub (tu cuenta, repositorio privado) con la orden ya escrita: toca «Submit new issue» para enviarla.</small></form>'+
+(pend.length?'<div class="head eq-sub"><h2>Enviadas, esperando a Kairos</h2></div><div class="list">'+pend.map(function(o){return '<div class="item eq-item"><span class="grow"><b>'+esc(o.t)+'</b><small>Enviada '+esc(new Date(o.f).toLocaleString('es-US'))+'</small></span><span class="eq-badge eq-pendiente">Enviada</span></div>'}).join('')+'</div>':'')+
+'<div class="head eq-sub"><h2>Órdenes y su estado</h2></div>'+(ts.length?'<div class="list">'+ts.map(kOrder).join('')+'</div>':'<p class="eq-empty">Sin órdenes todavía.</p>')+
+'<p class="eq-upd">Actualizado: '+(EQ.actualizado?esc(new Date(EQ.actualizado).toLocaleString('es-US')):'—')+' <button type="button" class="btn" id="eqRefresh">Actualizar</button></p>'};
+document.addEventListener('submit',function(e){if(e.target.id!=='kForm')return;e.preventDefault();var t=$('#kTitle').value.trim(),b=$('#kBody').value.trim();if(!t)return;
+var body='Orden de José para Kairos.\n\n'+(b||t)+'\n\n---\nEnviada desde Aurora CRM.';
+var u='https://github.com/'+KREPO+'/issues/new?labels=orden-kairos&title='+encodeURIComponent('Kairos: '+t)+'&body='+encodeURIComponent(body);
+var l=kSent();l.push({t:'Kairos: '+t,f:new Date().toISOString()});localStorage.setItem(KLS,JSON.stringify(l.slice(-20)));
+window.open(u,'_blank','noopener');render()});
 document.addEventListener('click',function(e){if(e.target.id==='eqRefresh')loadEq()});setInterval(loadEq,60000);
 window.addEventListener('hashchange',render);render();loadEq();
 })();

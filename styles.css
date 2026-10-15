@@ -105,3 +105,14 @@ a.btn{color:var(--text)}
 .eq-count,.eq-count b,.eq-count small{color:#10223d}.eq-badge{color:#10223d}
 .eq-hecho.eq-badge{color:#0d5c30}.eq-bloqueado.eq-badge{color:#8a1f14}.eq-por_verificar.eq-badge{color:#123f86}.eq-en_curso.eq-badge{color:#6b5000}
 #eqRefresh{color:#fff}
+.k-form{display:flex;flex-direction:column;gap:10px;background:var(--panel,#0b1d3f);border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 0 18px}
+.k-form input,.k-form textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--text);background:#06142e;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.k-form .btn{min-height:46px;font-size:16px}
+.k-form small{opacity:.75}
+.k-order .grow{display:flex;flex-direction:column;gap:4px;min-width:0}
+.k-ev{color:var(--cyan)}
+.k-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.k-link{display:inline-flex;align-items:center;min-height:36px;text-decoration:none}
+.eq-demo_no_valida{opacity:.6}
+@media (max-width:640px){.k-order{flex-wrap:wrap}}
+.k-order small a{color:var(--cyan)}
